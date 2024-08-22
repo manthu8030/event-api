@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "e2789798-a5a3-4b96-811b-d6d74be59dc1",
+		"name": "Event API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28043599"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/auth/v1/token",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"auth",
+						"v1",
+						"token"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "admin",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ1c2VyX2lkIjoxLCJpYXQiOjE3MjQzNDcwNzYsImV4cCI6MTcyNDM1MDY3Nn0uZWFjMjVlYWMyYjUyNTYwZGEwODdhYzg1ZjYxMWYzMGM3ZWI2YzUxNDA3ZDQwMTYwMTRhMWFmMDIyYWQ1MzFjMA==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"admin 1\",\r\n    \"description\": \"admin\",\r\n    \"start_datetime\": \"2024-08-21 12:00:00\",\r\n    \"end_datetime\": \"2024-08-23 12:00:00\",\r\n    \"category\": \"admin, Manthan, test, 34\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/events/v1/create",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"events",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ1c2VyX2lkIjoxLCJpYXQiOjE3MjQzMTk4NzIsImV4cCI6MTcyNDMyMzQ3Mn0uMmQyMTBlODNkMGI2NWVkOWY2ZTAzYzUyMzM3NTM0NWExNDRiZmE4NDAxOTUzZmViNjhlYWU3ODJmMDU5N2M3OQ==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"updated 2\",\r\n    \"description\": \"admin 23\",\r\n    \"start_datetime\": \"2024-09-21 12:00:00\",\r\n    \"end_datetime\": \"2024-10-23 12:00:00\",\r\n    \"category\": \"admin, Manthan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/events/v1/update/{{EventID}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"events",
+						"v1",
+						"update",
+						"{{EventID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ1c2VyX2lkIjoxLCJpYXQiOjE3MjQzMTk4NzIsImV4cCI6MTcyNDMyMzQ3Mn0uMmQyMTBlODNkMGI2NWVkOWY2ZTAzYzUyMzM3NTM0NWExNDRiZmE4NDAxOTUzZmViNjhlYWU3ODJmMDU5N2M3OQ==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/events/v1/list?date=2024-08-21",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"events",
+						"v1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-08-21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ1c2VyX2lkIjoxLCJpYXQiOjE3MjQzMTk4NzIsImV4cCI6MTcyNDMyMzQ3Mn0uMmQyMTBlODNkMGI2NWVkOWY2ZTAzYzUyMzM3NTM0NWExNDRiZmE4NDAxOTUzZmViNjhlYWU3ODJmMDU5N2M3OQ==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/events/v1/show?id={{EventID}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"events",
+						"v1",
+						"show"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{EventID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ1c2VyX2lkIjoxLCJpYXQiOjE3MjQzMTYxNzcsImV4cCI6MTcyNDMxOTc3N30uOTc2ODI3NWE1YzE3ZDg2MmM0Yzc5NDU5NzhjMzExYzdkZmQ4NTFhZWRmMDY3ZWJkYzZhNGE3ZmIwMmI1MjYyOQ==",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/wp-json/events/v1/delete?id={{EventID}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"wp-json",
+						"events",
+						"v1",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{EventID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://eventapi.test",
+			"type": "string"
+		},
+		{
+			"key": "EventID",
+			"value": "01",
+			"type": "string"
+		}
+	]
+}
