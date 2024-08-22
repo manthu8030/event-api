@@ -1,0 +1,4 @@
+Future Enhancements
+- Advanced Filtering: support filtering by multiple parameters like category, date range, etc.
+- Pagination: Implement pagination for the list endpoint
+- Webhooks: webhooks to notify other systems when events are created, updated, or deleted.
