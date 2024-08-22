@@ -25,6 +25,9 @@ The Events API Plugin is a WordPress plugin that provides a RESTful API for mana
 1. Download or clone this repository into your WordPress `wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
+## Postman Collection
+I have added a Postman collection into this repository. Just download and import into your system.
+
 ## Usage
 
 ### 1. Token Generation
